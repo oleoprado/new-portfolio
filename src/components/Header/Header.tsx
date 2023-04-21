@@ -1,21 +1,22 @@
 import { useRef, useEffect } from 'react'
 
 export default function Header() {
-  const headerRef = useRef<HTMLElement>(null)
-  const menuRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
-  function stickyHeader() {
-    window.addEventListener('scroll', () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current!.classList.add('sticky__header')
-      } else {
-        headerRef.current!.classList.remove('sticky__header')
-      }
-    })
-  }
+  // function stickyHeader() {
+  //   window.addEventListener('scroll', (event: Event) => {
+  //     const target = event.target as HTMLDivElement
+  //     if (
+  //       document.body.scrollTop > 80 ||
+  //       document.documentElement.scrollTop > 80
+  //     ) {
+  //       headerRef.current!.classList.add('sticky__header')
+  //     } else {
+  //       headerRef.current!.classList.remove('sticky__header')
+  //     }
+  //   })
+  // }
 
   // function handleClick(e: MouseEvent) {
   //   e.preventDefault()
@@ -35,10 +36,27 @@ export default function Header() {
     menuRef.current!.classList.toggle('show__menu')
   }
 
-  useEffect(() => {
-    stickyHeader()
+  // useEffect(() => {
+  //   stickyHeader()
 
-    return window.removeEventListener('scroll', stickyHeader)
+  //   return window.removeEventListener('scroll', stickyHeader)
+  // }, [])
+  useEffect(() => {
+    function stickyHeader() {
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 80) {
+        headerRef.current!.classList.add('sticky__header')
+      } else {
+        headerRef.current!.classList.remove('sticky__header')
+      }
+    }
+
+    window.addEventListener('scroll', stickyHeader)
+
+    return () => {
+      window.removeEventListener('scroll', stickyHeader)
+    }
   }, [])
 
   return (
