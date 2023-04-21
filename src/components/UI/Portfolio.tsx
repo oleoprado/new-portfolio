@@ -16,7 +16,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState(data)
   const [filterProjects, setFilterProjects] = useState('all')
   const [showModal, setShowModal] = useState(false)
-  const [activeID, setActiveID] = useState<string | null>(null)
+  const [activeID, setActiveID] = useState('')
 
   function handleLoadMore() {
     setNextItems((prev) => prev + 3)
