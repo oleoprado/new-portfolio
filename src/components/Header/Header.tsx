@@ -4,18 +4,18 @@ export default function Header() {
   const headerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  // function stickyHeader() {
-  //   window.addEventListener('scroll', () => {
-  //     if (
-  //       document.body.scrollTop > 80 ||
-  //       document.documentElement.scrollTop > 80
-  //     ) {
-  //       headerRef.current!.classList.add('sticky__header')
-  //     } else {
-  //       headerRef.current!.classList.remove('sticky__header')
-  //     }
-  //   })
-  // }
+  function stickyHeader() {
+    window.addEventListener('scroll', () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current!.classList.add('sticky__header')
+      } else {
+        headerRef.current!.classList.remove('sticky__header')
+      }
+    })
+  }
 
   // function handleClick(e: MouseEvent) {
   //   e.preventDefault()
@@ -35,11 +35,11 @@ export default function Header() {
     menuRef.current!.classList.toggle('show__menu')
   }
 
-  // useEffect(() => {
-  //   stickyHeader()
+  useEffect(() => {
+    stickyHeader()
 
-  //   return window.removeEventListener('scroll', stickyHeader)
-  // }, [])
+    return window.removeEventListener('scroll', stickyHeader)
+  }, [])
 
   return (
     <header
