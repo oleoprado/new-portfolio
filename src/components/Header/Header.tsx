@@ -1,4 +1,4 @@
-import { useRef, useEffect, MouseEvent } from 'react'
+import { useRef, useEffect } from 'react'
 
 export default function Header() {
   const headerRef = useRef<HTMLElement>(null)
@@ -17,19 +17,19 @@ export default function Header() {
     })
   }
 
-  function handleClick(e: MouseEvent) {
-    e.preventDefault()
+  // function handleClick(e: MouseEvent) {
+  //   e.preventDefault()
 
-    const targetAttr = (e.target as HTMLAnchorElement).getAttribute('href')
-    const location = document.querySelector(targetAttr)?.offsetTop
+  //   const targetAttr = (e.target as HTMLAnchorElement).getAttribute('href')
+  //   const location = document.querySelector(targetAttr)?.offsetTop
 
-    if (location) {
-      window.scrollTo({
-        top: location - 80,
-        left: 0,
-      })
-    }
-  }
+  //   if (location) {
+  //     window.scrollTo({
+  //       top: location - 80,
+  //       left: 0,
+  //     })
+  //   }
+  // }
 
   function toggleMenu() {
     menuRef.current!.classList.toggle('show__menu')
@@ -69,7 +69,7 @@ export default function Header() {
                 <a
                   className="text-smallTextColor font-[600]"
                   href="#about"
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   About
                 </a>
@@ -78,7 +78,7 @@ export default function Header() {
                 <a
                   className="text-smallTextColor font-[600]"
                   href="#services"
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Services
                 </a>
@@ -87,7 +87,7 @@ export default function Header() {
                 <a
                   className="text-smallTextColor font-[600]"
                   href="#portfolio"
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Portfolio
                 </a>
@@ -96,7 +96,7 @@ export default function Header() {
                 <a
                   className="text-smallTextColor font-[600]"
                   href="#contact"
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Contact
                 </a>
