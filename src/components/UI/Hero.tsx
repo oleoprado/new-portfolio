@@ -1,6 +1,6 @@
 import CountUp from 'react-countup'
 // import heroImg from '../../assets/images/hero.svg'
-import heroImg from '../../assets/images/leo.png'
+import heroImg from '../../assets/images/LeoPradoFundo.png'
 
 export default function Hero() {
   return (
@@ -85,7 +85,7 @@ export default function Hero() {
           </div>
 
           <div className="basis-1/3 mt-10 sm:mt-0">
-            <figure className="flex items-center justify-center bg-primaryColor rounded-3xl">
+            <figure className="flex items-center justify-center">
               <img src={heroImg} alt="" />
             </figure>
           </div>
