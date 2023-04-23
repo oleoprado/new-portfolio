@@ -18,7 +18,7 @@ export default function Services() {
         </div>
 
         {/* ====== start timeline ====== */}
-        <div className="flex flex-col justify-center sm:py-12">
+        <div className="flex flex-col justify-center sm:py-12 overflow-x-hidden">
           <div className="w-full py-3 px-2 sm:max-w-xl sm:mx-auto sm:px-0">
             <div className="relative text-gray-700 antialiased text-sm font-semibold">
               {/* ====== vertical line ===== */}
